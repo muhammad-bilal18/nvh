@@ -11,7 +11,7 @@ connectToDb();
 const app = createServer();
 prod(app);
 
-app.get('/', (_req, res) => {
+app.use('/', (_req, res) => {
     res.send('hello world')
 })
 
