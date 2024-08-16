@@ -13,6 +13,9 @@ console.log('app.ts');
 (0, db_1.default)();
 const app = (0, createServer_1.default)();
 (0, production_1.prod)(app);
+app.use('/', (_req, res) => {
+    res.send('hello world');
+});
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
     exception_1.logger.info(`Server listening on port ${port}`);
