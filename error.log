@@ -1,0 +1,5 @@
+{
+  message: 'Cast to ObjectId failed for value "66b458c0ab2d269a93e1c06z" (type string) at path "_id" for model "Patient"',
+  level: 'warn',
+  timestamp: '2024-08-15T08:14:18.354Z'
+}

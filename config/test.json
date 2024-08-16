@@ -1,0 +1,5 @@
+{
+    "env": "test",
+    "jwtPrivateKey": "1234",
+    "db": "mongodb://localhost/hospital_tests"
+}
