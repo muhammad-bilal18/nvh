@@ -9,6 +9,8 @@ export default function createServer(): Express {
     const app = express();
     app.use(cors());
     app.use(express.json());
+
+
     app.use('/api/patients', patients);
     app.use('/api/appointments', appointments);
 

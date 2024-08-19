@@ -1,3 +1,5 @@
 {
-    "db": "mongodb+srv://muhammadbilal:1234@nvh.mb95n.mongodb.net/hospital?retryWrites=true&w=majority&appName=nvh"
+    "env": "dev",
+    "jwtPrivateKey": "",
+    "db": "mongodb://localhost/hospital"
 }
