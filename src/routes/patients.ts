@@ -1,6 +1,7 @@
 import express, { Request, Response, NextFunction } from 'express';
-import { Patient, validatePatient } from '../models/patient';
+import { Patient } from '../models/patient';
 import mongoose from 'mongoose';
+import { validatePatient } from '../validation/patient';
 
 const router = express.Router();
 

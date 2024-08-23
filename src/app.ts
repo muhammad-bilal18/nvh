@@ -1,3 +1,5 @@
+import { config } from 'dotenv';
+config();
 import { logger } from './middlewares/exception';
 import connectToDb from './start/db';
 import logging from './start/logging';

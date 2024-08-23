@@ -1,7 +1,8 @@
 import express, { Request, Response } from 'express';
-import { Appointment, validateAppointment } from '../models/appointment';
+import { Appointment } from '../models/appointment';
 import { Patient } from '../models/patient';
 import mongoose from 'mongoose';
+import { validateAppointment } from '../validation/appointment';
 
 const router = express.Router();
 

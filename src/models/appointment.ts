@@ -1,4 +1,4 @@
-import Joi from 'joi';
+
 import mongoose, { Document, Schema } from 'mongoose';
 
 interface IPatient {
@@ -7,13 +7,20 @@ interface IPatient {
     ownerPhoneNumber: string;
 }
 
+enum FeeStatus {
+    USD = 'USD',
+    EUR = 'EUR',
+    Bitcoin = 'Bitcoin',
+    Unpaid = 'Unpaid'
+}
+
 interface IAppointment extends Document {
     patient: IPatient;
     appointmentStartTime: Date;
     appointmentEndTime: Date;
     description: string;
     feeAmount: number;
-    feeStatus: 'USD' | 'EUR' | 'Bitcoin' | 'Unpaid';
+    feeStatus: string;
 }
 
 const appointmentSchema = new Schema<IAppointment>({
@@ -36,24 +43,13 @@ const appointmentSchema = new Schema<IAppointment>({
     feeAmount: { type: Number, required: true },
     feeStatus: { 
         type: String, 
-        enum: ['USD', 'EUR', 'Bitcoin', 'Unpaid'], 
+        enum: Object.values(FeeStatus),
         required: true 
     }
 });
 
 const Appointment = mongoose.model<IAppointment>('Appointment', appointmentSchema);
 
-function validateAppointment(appointment: any) {
-    const schema = Joi.object({
-        patientId: Joi.string().length(24).required(),
-        appointmentStartTime: Joi.date().iso().required(),
-        appointmentEndTime: Joi.date().iso().required(),
-        description: Joi.string().min(5).max(255).required(),
-        feeAmount: Joi.number().required(),
-        feeStatus: Joi.string().valid('USD', 'EUR', 'Bitcoin', 'Unpaid').required()
-    });
 
-    return schema.validate(appointment).error;
-}
 
-export { Appointment, validateAppointment };
+export { Appointment };
